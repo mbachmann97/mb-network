@@ -1,0 +1,12 @@
+{
+  "name": "mb-network",
+  "version": "1.0.0",
+  "description": "network library",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mbachmann97/mb-network.git"
+  },
+  "type": "module",
+  "author": "Markus Bachmann",
+  "license": "MIT"
+}
