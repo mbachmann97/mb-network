@@ -1,11 +1,11 @@
-import { IP } from "./IP.js"
+import IP from "./IP.js"
 import binary from './binary.js'
 
 String.prototype.replaceAt = function(index, replacement) {
     return this.substr(0, index) + replacement + this.substr(index + replacement.length);
 }
 
-export class Subnet {
+export default class Subnet {
     #networkAddress
     #suffix
 
