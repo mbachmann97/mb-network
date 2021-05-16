@@ -1,6 +1,6 @@
 import binary from './binary.js'
 
-export class IP {
+export default class IP {
     #octetOne;
     #octetTwo;
     #octetThree;
