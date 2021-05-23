@@ -25,8 +25,8 @@ $ 254
 ```
 
 ## Class Parameters
-### IP(string) `f.e. => 192.160.1.7`
-### Subnet(IP, number) `f.e. => 192.160.1.0, 16`
+- IP(string) `f.e. => 192.160.1.7`
+- Subnet(IP, number) `f.e. => 192.160.1.0, 16`
 #### note:  The IP in the first Subnet parameter should be the network-address!
 
 ## Methods
