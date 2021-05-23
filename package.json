@@ -2,6 +2,14 @@
   "name": "mb-network",
   "version": "1.0.0",
   "description": "network library",
+  "keywords": [
+    "network",
+    "calculate",
+    "ip",
+    "subnet",
+    "configuration",
+    "validation"
+  ],
   "main": "main.js",
   "repository": {
     "type": "git",
