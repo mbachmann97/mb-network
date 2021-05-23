@@ -1,6 +1,6 @@
 # mb-network
 
-[![npm version](https://img.shields.io/badge/npm-v1.0.2-orange)](https://www.npmjs.org/package/mb-network)
+[![npm version](https://img.shields.io/badge/npm-v1.0.3-orange)](https://www.npmjs.org/package/mb-network)
 [![install size](https://packagephobia.com/badge?p=mb-network)](https://packagephobia.com/result?p=mb-network)
 
 Class based Network Library for Javascript
@@ -25,8 +25,8 @@ $ 254
 ```
 
 ## Class Parameters
-- IP(string) `f.e. => '192.160.1.7'`
-- Subnet(IP, number) `f.e. => new IP('192.160.1.0'), 16`
+- IP(string) `f.e. => '192.168.1.7'`
+- Subnet(IP, number) `f.e. => new IP('192.168.0.0'), 16`
 #### note:  The IP in the first Subnet parameter should be the network-address!
 
 ## Methods
