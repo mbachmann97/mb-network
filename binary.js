@@ -58,4 +58,47 @@ binary.splitIntoOctets = (bits) => {
     return octetArray
 }
 
+binary.findPermutations = (bits) => {
+    if (!bits || typeof bits !== "string"){
+        throw new Error(`Invalid argument. expected (String)`)
+    } else if (bits.length < 2 ){
+        return bits
+    }
+
+    let permutationsArray = [] 
+
+    for (let i = 0; i < bits.length; i++){
+        let bit = bits[i]
+    
+        if (bits.indexOf(bit) != i)
+        continue
+    
+        let remainingBits = bits.slice(0, i) + bits.slice(i + 1, bits.length)
+    
+        for (let permutation of binary.findPermutations(remainingBits)){
+            permutationsArray.push(bit + permutation) 
+        }
+    }
+    return permutationsArray
+}
+
+binary.hostBitPermutations = (suffix) => {
+    let hostBits = ''
+    for (let i = 0; i < 32 - suffix; i++) {
+        hostBits += '0'
+    }
+
+    let permutations = []
+
+    for (let j = 0; j < hostBits.length - 1; j++) {
+        hostBits = hostBits.replaceAt(j, '1')
+        for (let permutation of binary.findPermutations(hostBits)) {
+            permutations.push(permutation)
+        }
+    }
+
+    permutations.sort()
+    return permutations
+}
+
 export default binary

@@ -1,6 +1,6 @@
 # mb-network
 
-[![npm version](https://img.shields.io/badge/npm-v1.0.3-orange)](https://www.npmjs.org/package/mb-network)
+[![npm version](https://img.shields.io/badge/npm-v1.1.0-orange](https://www.npmjs.org/package/mb-network)
 [![install size](https://packagephobia.com/badge?p=mb-network)](https://packagephobia.com/result?p=mb-network)
 
 Class based Network Library for Javascript
