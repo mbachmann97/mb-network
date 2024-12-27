@@ -18,5 +18,7 @@
   "type": "module",
   "author": "Markus Bachmann",
   "license": "MIT",
-  "dependencies": {}
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4"
+  }
 }
