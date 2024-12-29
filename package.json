@@ -1,7 +1,15 @@
 {
   "name": "mb-network",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "network library",
+  "scripts": {
+    "build": "tsup src/* --format cjs,esm --dts --keepNames",
+    "format": "npx @biomejs/biome format --write ./",
+    "test": "vitest"
+  },
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "network",
     "calculate",
@@ -10,7 +18,15 @@
     "configuration",
     "validation"
   ],
-  "main": "main.js",
+  "main": "dist/main.cjs",
+  "module": "dist/main.mjs",
+  "types": "dist/main.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/main.cjs",
+      "import": "./dist/main.mjs"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/mbachmann97/mb-network.git"
@@ -19,6 +35,9 @@
   "author": "Markus Bachmann",
   "license": "MIT",
   "devDependencies": {
-    "@biomejs/biome": "1.9.4"
+    "@biomejs/biome": "1.9.4",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
   }
 }
