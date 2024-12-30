@@ -1,27 +1,18 @@
-# mb-network
+**mb-network v2.0.0**
 
-[![npm version](https://img.shields.io/badge/npm-v2.0.0-orange)](https://www.npmjs.org/package/mb-network)
-[![install size](https://packagephobia.com/badge?p=mb-network)](https://packagephobia.com/result?p=mb-network)
+***
 
-#### *Network Library for Typescript / Javascript*
+# mb-network v2.0.0
 
-## Getting started
-```bash
-$ npm i mb-network
-```
-
-## Documentation
-
-
-### Interfaces
+## Interfaces
 
 - [Subnet](interfaces/Subnet.md)
 
-### Type Aliases
+## Type Aliases
 
 - [Ip](type-aliases/Ip.md)
 
-### Functions
+## Functions
 
 - [areSubnetsIntersecting](functions/areSubnetsIntersecting.md)
 - [broadcast](functions/broadcast.md)

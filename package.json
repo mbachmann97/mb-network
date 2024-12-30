@@ -1,43 +1,44 @@
 {
-  "name": "mb-network",
-  "version": "2.0.0",
-  "description": "network library",
-  "scripts": {
-    "build": "tsup src/* --format cjs,esm --dts --keepNames",
-    "format": "npx @biomejs/biome format --write ./",
-    "test": "vitest"
-  },
-  "files": [
-    "dist"
-  ],
-  "keywords": [
-    "network",
-    "calculate",
-    "ip",
-    "subnet",
-    "configuration",
-    "validation"
-  ],
-  "main": "dist/main.cjs",
-  "module": "dist/main.mjs",
-  "types": "dist/main.d.ts",
-  "exports": {
-    ".": {
-      "require": "./dist/main.cjs",
-      "import": "./dist/main.mjs"
-    }
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mbachmann97/mb-network.git"
-  },
-  "type": "module",
-  "author": "Markus Bachmann",
-  "license": "MIT",
-  "devDependencies": {
-    "@biomejs/biome": "1.9.4",
-    "tsup": "^8.3.5",
-    "typescript": "^5.7.2",
-    "vitest": "^2.1.8"
-  }
+	"name": "mb-network",
+	"version": "2.0.0",
+	"description": "network library",
+	"scripts": {
+		"build": "tsup src/* --format cjs,esm --dts --keepNames",
+		"format": "npx @biomejs/biome format --write ./",
+		"test": "vitest",
+		"docs": "typedoc --out docs --plugin typedoc-plugin-markdown --excludePrivate --includeVersion ./src/main.ts"
+	},
+	"files": ["dist"],
+	"keywords": [
+		"network",
+		"calculate",
+		"ip",
+		"subnet",
+		"configuration",
+		"validation"
+	],
+	"main": "dist/main.cjs",
+	"module": "dist/main.mjs",
+	"types": "dist/main.d.ts",
+	"exports": {
+		".": {
+			"require": "./dist/main.cjs",
+			"import": "./dist/main.mjs"
+		}
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mbachmann97/mb-network.git"
+	},
+	"type": "module",
+	"author": "Markus Bachmann",
+	"license": "MIT",
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"tsup": "^8.3.5",
+		"typedoc": "^0.27.6",
+		"typedoc-plugin-markdown": "^4.3.3",
+		"typescript": "^5.7.2",
+		"vitest": "^2.1.8"
+	}
 }
