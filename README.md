@@ -10,30 +10,30 @@
 $ npm i mb-network
 ```
 
-## Documentation
+## [Documentation](docs/README.md)
 
 
 ### Interfaces
 
-- [Subnet](interfaces/Subnet.md)
+- [Subnet](docs/interfaces/Subnet.md)
 
 ### Type Aliases
 
-- [Ip](type-aliases/Ip.md)
+- [Ip](docs/type-aliases/Ip.md)
 
 ### Functions
 
-- [areSubnetsIntersecting](functions/areSubnetsIntersecting.md)
-- [broadcast](functions/broadcast.md)
-- [firstHost](functions/firstHost.md)
-- [ipToString](functions/ipToString.md)
-- [isHostAddress](functions/isHostAddress.md)
-- [isIpValid](functions/isIpValid.md)
-- [isSubnetValid](functions/isSubnetValid.md)
-- [lastHost](functions/lastHost.md)
-- [networkMask](functions/networkMask.md)
-- [networkMaskToSuffix](functions/networkMaskToSuffix.md)
-- [newIp](functions/newIp.md)
-- [newSubnet](functions/newSubnet.md)
-- [possibleHostCount](functions/possibleHostCount.md)
-- [subnetToString](functions/subnetToString.md)
+- [areSubnetsIntersecting](docs/functions/areSubnetsIntersecting.md)
+- [broadcast](docs/functions/broadcast.md)
+- [firstHost](docs/functions/firstHost.md)
+- [ipToString](docs/functions/ipToString.md)
+- [isHostAddress](docs/functions/isHostAddress.md)
+- [isIpValid](docs/functions/isIpValid.md)
+- [isSubnetValid](docs/functions/isSubnetValid.md)
+- [lastHost](docs/functions/lastHost.md)
+- [networkMask](docs/functions/networkMask.md)
+- [networkMaskToSuffix](docs/functions/networkMaskToSuffix.md)
+- [newIp](docs/functions/newIp.md)
+- [newSubnet](docs/functions/newSubnet.md)
+- [possibleHostCount](docs/functions/possibleHostCount.md)
+- [subnetToString](docs/functions/subnetToString.md)
