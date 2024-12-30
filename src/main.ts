@@ -1,6 +1,3 @@
-import { networkMaskToSuffix, newSubnet } from './subnet';
-
-export type { Ip } from './ip';
+// mb-network entry point
 export * from './ip';
-export type { Subnet } from './subnet';
 export * from './subnet';
