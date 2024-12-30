@@ -11,9 +11,9 @@ export function newIp(ip: number | string): Ip {
 	// choose strategy based on type of ip
 	switch (typeof ip) {
 		case 'string':
-			return newIpFromString(ip);
+			return _newIpFromString(ip);
 		case 'number':
-			return newIpFromNumber(ip);
+			return _newIpFromNumber(ip);
 	}
 }
 
@@ -54,7 +54,7 @@ export function isIpValid(ip: Ip): boolean {
 	}
 }
 
-function newIpFromString(s: string): Ip {
+function _newIpFromString(s: string): Ip {
 	const stringOctets = s.split('.');
 	if (stringOctets.length === 4) {
 		const octets: number[] = [];
@@ -76,7 +76,7 @@ function newIpFromString(s: string): Ip {
 	throw Error('[mb-network][Ip] Octet count not equal to 4');
 }
 
-function newIpFromNumber(n: number): Ip {
+function _newIpFromNumber(n: number): Ip {
 	if (n < 0 || n > 4294967295) {
 		throw Error('[mb-network][Ip] Ip out of range when creating from number');
 	}
