@@ -2,7 +2,7 @@
 
 ***
 
-[mb-network](../README.md) / firstHost
+[mb-network](../globals.md) / firstHost
 
 # Function: firstHost()
 
@@ -30,4 +30,4 @@ An Error if the subnet is invalid
 
 ## Defined in
 
-[subnet.ts:82](https://github.com/mbachmann97/mb-network/blob/272a6a4fd3dfb28b0998d05a50b1dde727ead4d4/src/subnet.ts#L82)
+[subnet.ts:84](https://github.com/mbachmann97/mb-network/blob/7fec164a867a1a55636ff23695e44eb55e93955f/src/subnet.ts#L84)

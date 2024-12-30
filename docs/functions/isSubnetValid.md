@@ -2,7 +2,7 @@
 
 ***
 
-[mb-network](../README.md) / isSubnetValid
+[mb-network](../globals.md) / isSubnetValid
 
 # Function: isSubnetValid()
 
@@ -26,4 +26,4 @@ The subnet object to check
 
 ## Defined in
 
-[subnet.ts:41](https://github.com/mbachmann97/mb-network/blob/272a6a4fd3dfb28b0998d05a50b1dde727ead4d4/src/subnet.ts#L41)
+[subnet.ts:43](https://github.com/mbachmann97/mb-network/blob/7fec164a867a1a55636ff23695e44eb55e93955f/src/subnet.ts#L43)

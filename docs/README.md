@@ -2,29 +2,41 @@
 
 ***
 
-# mb-network v2.0.0
+# mb-network
 
-## Interfaces
+[![npm version](https://img.shields.io/badge/npm-v2.0.0-orange)](https://www.npmjs.org/package/mb-network)
+[![install size](https://packagephobia.com/badge?p=mb-network)](https://packagephobia.com/result?p=mb-network)
 
-- [Subnet](interfaces/Subnet.md)
+#### *Network Library for Typescript / Javascript*
 
-## Type Aliases
+## Getting started
+```bash
+$ npm i mb-network
+```
 
-- [Ip](type-aliases/Ip.md)
+## [Documentation](_media/globals.md)
 
-## Functions
+### Interfaces
 
-- [areSubnetsIntersecting](functions/areSubnetsIntersecting.md)
-- [broadcast](functions/broadcast.md)
-- [firstHost](functions/firstHost.md)
-- [ipToString](functions/ipToString.md)
-- [isHostAddress](functions/isHostAddress.md)
-- [isIpValid](functions/isIpValid.md)
-- [isSubnetValid](functions/isSubnetValid.md)
-- [lastHost](functions/lastHost.md)
-- [networkMask](functions/networkMask.md)
-- [networkMaskToSuffix](functions/networkMaskToSuffix.md)
-- [newIp](functions/newIp.md)
-- [newSubnet](functions/newSubnet.md)
-- [possibleHostCount](functions/possibleHostCount.md)
-- [subnetToString](functions/subnetToString.md)
+- [Subnet](_media/Subnet.md)
+
+### Type Aliases
+
+- [Ip](_media/Ip.md)
+
+### Functions
+
+- [areSubnetsIntersecting](_media/areSubnetsIntersecting.md)
+- [broadcast](_media/broadcast.md)
+- [firstHost](_media/firstHost.md)
+- [ipToString](_media/ipToString.md)
+- [isHostAddress](_media/isHostAddress.md)
+- [isIpValid](_media/isIpValid.md)
+- [isSubnetValid](_media/isSubnetValid.md)
+- [lastHost](_media/lastHost.md)
+- [networkMask](_media/networkMask.md)
+- [networkMaskToSuffix](_media/networkMaskToSuffix.md)
+- [newIp](_media/newIp.md)
+- [newSubnet](_media/newSubnet.md)
+- [possibleHostCount](_media/possibleHostCount.md)
+- [subnetToString](_media/subnetToString.md)

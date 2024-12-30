@@ -2,7 +2,7 @@
 
 ***
 
-[mb-network](../README.md) / newSubnet
+[mb-network](../globals.md) / newSubnet
 
 # Function: newSubnet()
 
@@ -34,10 +34,11 @@ A new subnet object with the correct network address according to the provided i
 
 An Error if the ip address is invalid or the suffix is out of range
 
-## Hint
+## Remarks
 
-If you want to create a subnet with the network mask instead of the suffix, use networkMaskToSuffix(mask) in place of the suffix
+If you want to create a subnet with the network mask instead of the suffix, use networkMaskToSuffix(mask) in place of the suffix;
+If you want to create a subnet with the amount of hosts that the subnet should be able to hold, use hostCountToSuffix(hostCount) in place of the suffix
 
 ## Defined in
 
-[subnet.ts:17](https://github.com/mbachmann97/mb-network/blob/272a6a4fd3dfb28b0998d05a50b1dde727ead4d4/src/subnet.ts#L17)
+[subnet.ts:19](https://github.com/mbachmann97/mb-network/blob/7fec164a867a1a55636ff23695e44eb55e93955f/src/subnet.ts#L19)

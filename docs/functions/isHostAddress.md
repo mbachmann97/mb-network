@@ -2,7 +2,7 @@
 
 ***
 
-[mb-network](../README.md) / isHostAddress
+[mb-network](../globals.md) / isHostAddress
 
 # Function: isHostAddress()
 
@@ -36,4 +36,4 @@ An Error if the subnet is invalid
 
 ## Defined in
 
-[subnet.ts:135](https://github.com/mbachmann97/mb-network/blob/272a6a4fd3dfb28b0998d05a50b1dde727ead4d4/src/subnet.ts#L135)
+[subnet.ts:137](https://github.com/mbachmann97/mb-network/blob/7fec164a867a1a55636ff23695e44eb55e93955f/src/subnet.ts#L137)

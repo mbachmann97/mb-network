@@ -10,7 +10,7 @@
 $ npm i mb-network
 ```
 
-## [Documentation](docs/README.md)
+## [Documentation](docs/globals.md)
 
 
 ### Interfaces

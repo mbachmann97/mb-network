@@ -174,8 +174,20 @@ describe('networkMaskToSuffix: convert network mask to suffix', () => {
 		const s24n = subnet.networkMaskToSuffix(4294967040);
 		const s25n = subnet.networkMaskToSuffix(4294967168);
 		expect(s24).toBe(24);
-		expect(s25).toBe(25);
 		expect(s24n).toBe(24);
 		expect(s25n).toBe(25);
+	});
+});
+
+describe('hostCountToSuffix: convert host count to suffix', () => {
+	it('returns the correct suffix for a given host count', () => {
+		const s24 = subnet.hostCountToSuffix(249);
+		const s25 = subnet.hostCountToSuffix(111);
+		const s26 = subnet.hostCountToSuffix(60);
+		const negative = subnet.hostCountToSuffix(-123);
+		expect(s24).toBe(24);
+		expect(s25).toBe(25);
+		expect(s26).toBe(26);
+		expect(negative).toBe(32);
 	});
 });

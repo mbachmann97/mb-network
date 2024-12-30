@@ -2,7 +2,7 @@
 
 ***
 
-[mb-network](../README.md) / Ip
+[mb-network](../globals.md) / Ip
 
 # Type Alias: Ip
 
@@ -10,4 +10,4 @@
 
 ## Defined in
 
-[ip.ts:1](https://github.com/mbachmann97/mb-network/blob/272a6a4fd3dfb28b0998d05a50b1dde727ead4d4/src/ip.ts#L1)
+[ip.ts:1](https://github.com/mbachmann97/mb-network/blob/7fec164a867a1a55636ff23695e44eb55e93955f/src/ip.ts#L1)

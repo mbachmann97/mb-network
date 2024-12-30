@@ -2,7 +2,7 @@
 
 ***
 
-[mb-network](../README.md) / isIpValid
+[mb-network](../globals.md) / isIpValid
 
 # Function: isIpValid()
 
@@ -26,4 +26,4 @@ The ip (number | Ip) address e.g. 3232235521
 
 ## Defined in
 
-[ip.ts:48](https://github.com/mbachmann97/mb-network/blob/272a6a4fd3dfb28b0998d05a50b1dde727ead4d4/src/ip.ts#L48)
+[ip.ts:48](https://github.com/mbachmann97/mb-network/blob/7fec164a867a1a55636ff23695e44eb55e93955f/src/ip.ts#L48)

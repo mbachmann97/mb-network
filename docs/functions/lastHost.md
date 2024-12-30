@@ -2,7 +2,7 @@
 
 ***
 
-[mb-network](../README.md) / lastHost
+[mb-network](../globals.md) / lastHost
 
 # Function: lastHost()
 
@@ -30,4 +30,4 @@ An Error if the subnet is invalid
 
 ## Defined in
 
-[subnet.ts:99](https://github.com/mbachmann97/mb-network/blob/272a6a4fd3dfb28b0998d05a50b1dde727ead4d4/src/subnet.ts#L99)
+[subnet.ts:101](https://github.com/mbachmann97/mb-network/blob/7fec164a867a1a55636ff23695e44eb55e93955f/src/subnet.ts#L101)

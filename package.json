@@ -6,7 +6,7 @@
 		"build": "tsup src/* --format cjs,esm --dts --keepNames",
 		"format": "npx @biomejs/biome format --write ./",
 		"test": "vitest",
-		"docs": "typedoc --out docs --plugin typedoc-plugin-markdown --excludePrivate --includeVersion ./src/main.ts"
+		"docs": "typedoc --out docs --plugin typedoc-plugin-markdown --excludePrivate --includeVersion --entryPoints ./src/main.ts"
 	},
 	"files": ["dist"],
 	"keywords": [

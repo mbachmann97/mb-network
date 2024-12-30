@@ -2,7 +2,7 @@
 
 ***
 
-[mb-network](../README.md) / networkMask
+[mb-network](../globals.md) / networkMask
 
 # Function: networkMask()
 
@@ -30,4 +30,4 @@ An Error if the suffix is out of range
 
 ## Defined in
 
-[subnet.ts:58](https://github.com/mbachmann97/mb-network/blob/272a6a4fd3dfb28b0998d05a50b1dde727ead4d4/src/subnet.ts#L58)
+[subnet.ts:60](https://github.com/mbachmann97/mb-network/blob/7fec164a867a1a55636ff23695e44eb55e93955f/src/subnet.ts#L60)

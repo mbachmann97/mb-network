@@ -2,7 +2,7 @@
 
 ***
 
-[mb-network](../README.md) / Subnet
+[mb-network](../globals.md) / Subnet
 
 # Interface: Subnet
 
@@ -14,7 +14,7 @@
 
 #### Defined in
 
-[subnet.ts:4](https://github.com/mbachmann97/mb-network/blob/272a6a4fd3dfb28b0998d05a50b1dde727ead4d4/src/subnet.ts#L4)
+[subnet.ts:4](https://github.com/mbachmann97/mb-network/blob/7fec164a867a1a55636ff23695e44eb55e93955f/src/subnet.ts#L4)
 
 ***
 
@@ -24,4 +24,4 @@
 
 #### Defined in
 
-[subnet.ts:5](https://github.com/mbachmann97/mb-network/blob/272a6a4fd3dfb28b0998d05a50b1dde727ead4d4/src/subnet.ts#L5)
+[subnet.ts:5](https://github.com/mbachmann97/mb-network/blob/7fec164a867a1a55636ff23695e44eb55e93955f/src/subnet.ts#L5)

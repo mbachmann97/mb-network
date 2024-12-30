@@ -2,7 +2,7 @@
 
 ***
 
-[mb-network](../README.md) / areSubnetsIntersecting
+[mb-network](../globals.md) / areSubnetsIntersecting
 
 # Function: areSubnetsIntersecting()
 
@@ -36,4 +36,4 @@ An Error if any of the subnets are invalid
 
 ## Defined in
 
-[subnet.ts:153](https://github.com/mbachmann97/mb-network/blob/272a6a4fd3dfb28b0998d05a50b1dde727ead4d4/src/subnet.ts#L153)
+[subnet.ts:155](https://github.com/mbachmann97/mb-network/blob/7fec164a867a1a55636ff23695e44eb55e93955f/src/subnet.ts#L155)

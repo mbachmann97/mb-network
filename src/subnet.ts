@@ -12,7 +12,9 @@ export interface Subnet {
  * @param suffix The CIDR suffix or the number of network bits in the network mask
  * @returns A new subnet object with the correct network address according to the provided ip address and suffix
  * @throws An Error if the ip address is invalid or the suffix is out of range
- * @hint If you want to create a subnet with the network mask instead of the suffix, use networkMaskToSuffix(mask) in place of the suffix
+ * @remarks
+ * If you want to create a subnet with the network mask instead of the suffix, use networkMaskToSuffix(mask) in place of the suffix;
+ * If you want to create a subnet with the amount of hosts that the subnet should be able to hold, use hostCountToSuffix(hostCount) in place of the suffix
  */
 export function newSubnet(ip: Ip | string, suffix: number): Subnet {
 	// ensure we got an ip address
@@ -187,6 +189,17 @@ export function networkMaskToSuffix(mask: Ip | string): number {
 	const suffix = _mask.toString(2).split('1').length - 1;
 
 	return suffix;
+}
+
+/**
+ *	Converts the amount of hosts that a subnet should be able to hold to the CIDR suffix of the smallest subnet that can hold that amount of hosts
+ *
+ * @param hostCount The amount of hosts that a subnet should be able to hold
+ * @returns The suffix for the smallest subnet that can hold the provided amount of hosts
+ */
+export function hostCountToSuffix(hostCount: number): number {
+	if (hostCount <= 0) return 32;
+	return 32 - Math.ceil(Math.log2(hostCount + 2));
 }
 
 /**
