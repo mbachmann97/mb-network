@@ -2,7 +2,7 @@
 
 ***
 
-[mb-network](../globals.md) / newIp
+[mb-network](../README.md) / newIp
 
 # Function: newIp()
 
@@ -30,4 +30,4 @@ An Error if the ip address is invalid
 
 ## Defined in
 
-[ip.ts:10](https://github.com/mbachmann97/mb-network/blob/7fec164a867a1a55636ff23695e44eb55e93955f/src/ip.ts#L10)
+[ip.ts:10](https://github.com/mbachmann97/mb-network/blob/3f249f64df357d743cd7d48be3dc86d3f3cf1f0e/src/ip.ts#L10)

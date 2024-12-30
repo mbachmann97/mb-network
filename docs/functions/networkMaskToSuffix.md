@@ -2,7 +2,7 @@
 
 ***
 
-[mb-network](../globals.md) / networkMaskToSuffix
+[mb-network](../README.md) / networkMaskToSuffix
 
 # Function: networkMaskToSuffix()
 
@@ -30,4 +30,4 @@ An Error if the network mask is invalid
 
 ## Defined in
 
-[subnet.ts:180](https://github.com/mbachmann97/mb-network/blob/7fec164a867a1a55636ff23695e44eb55e93955f/src/subnet.ts#L180)
+[subnet.ts:180](https://github.com/mbachmann97/mb-network/blob/3f249f64df357d743cd7d48be3dc86d3f3cf1f0e/src/subnet.ts#L180)

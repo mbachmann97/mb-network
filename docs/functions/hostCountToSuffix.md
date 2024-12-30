@@ -2,7 +2,7 @@
 
 ***
 
-[mb-network](../globals.md) / hostCountToSuffix
+[mb-network](../README.md) / hostCountToSuffix
 
 # Function: hostCountToSuffix()
 
@@ -26,4 +26,4 @@ The suffix for the smallest subnet that can hold the provided amount of hosts
 
 ## Defined in
 
-[subnet.ts:200](https://github.com/mbachmann97/mb-network/blob/7fec164a867a1a55636ff23695e44eb55e93955f/src/subnet.ts#L200)
+[subnet.ts:200](https://github.com/mbachmann97/mb-network/blob/3f249f64df357d743cd7d48be3dc86d3f3cf1f0e/src/subnet.ts#L200)

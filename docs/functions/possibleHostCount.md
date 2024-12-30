@@ -2,7 +2,7 @@
 
 ***
 
-[mb-network](../globals.md) / possibleHostCount
+[mb-network](../README.md) / possibleHostCount
 
 # Function: possibleHostCount()
 
@@ -30,4 +30,4 @@ An Error if the suffix is out of range
 
 ## Defined in
 
-[subnet.ts:72](https://github.com/mbachmann97/mb-network/blob/7fec164a867a1a55636ff23695e44eb55e93955f/src/subnet.ts#L72)
+[subnet.ts:72](https://github.com/mbachmann97/mb-network/blob/3f249f64df357d743cd7d48be3dc86d3f3cf1f0e/src/subnet.ts#L72)

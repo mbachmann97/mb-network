@@ -2,7 +2,7 @@
 
 ***
 
-[mb-network](../globals.md) / newSubnet
+[mb-network](../README.md) / newSubnet
 
 # Function: newSubnet()
 
@@ -41,4 +41,4 @@ If you want to create a subnet with the amount of hosts that the subnet should b
 
 ## Defined in
 
-[subnet.ts:19](https://github.com/mbachmann97/mb-network/blob/7fec164a867a1a55636ff23695e44eb55e93955f/src/subnet.ts#L19)
+[subnet.ts:19](https://github.com/mbachmann97/mb-network/blob/3f249f64df357d743cd7d48be3dc86d3f3cf1f0e/src/subnet.ts#L19)

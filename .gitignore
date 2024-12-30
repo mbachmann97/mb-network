@@ -2,4 +2,4 @@ node_modules
 .github
 dist
 docs/_media
-docs/README.md
+docs/globals.md
