@@ -26,4 +26,4 @@ The ip (number | Ip) address e.g. 3232235521
 
 ## Defined in
 
-[ip.ts:48](https://github.com/mbachmann97/mb-network/blob/3f249f64df357d743cd7d48be3dc86d3f3cf1f0e/src/ip.ts#L48)
+[ip.ts:48](https://github.com/mbachmann97/mb-network/blob/3f5d1757544ae826d544d9a0cd9aec41c51c4650/src/ip.ts#L48)

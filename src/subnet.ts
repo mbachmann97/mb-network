@@ -5,6 +5,101 @@ export interface Subnet {
 	suffix: number;
 }
 
+export interface SubnetIter {
+	next: () => { value: Ip; done: boolean };
+	[Symbol.iterator]: () => SubnetIter;
+}
+
+/**
+ *  Creates an iterator for **all addresses** in the provided subnet
+ *
+ * @param subnet The subnet object to iterate over
+ * @returns An iterator over all addresses in the subnet
+ * @throws An Error if the subnet is invalid
+ */
+export function newSubnetIter(subnet: Subnet): SubnetIter {
+	// validate subnet
+	if (!isSubnetValid(subnet)) {
+		throw new Error(
+			'[mb-network][Subnet] Invalid subnet provided when creating iterator; hint: use newSubnet()',
+		);
+	}
+
+	let current = subnet.networkAddress;
+	const end = _broadcast(subnet);
+	let isConsumed = false;
+	return {
+		next: () => {
+			if (isConsumed) {
+				throw new Error(
+					'[mb-network][Subnet] Iterator has already been consumed',
+				);
+			}
+
+			if (current > end) {
+				isConsumed = true;
+				return { value: end, done: true };
+			}
+			const value = current;
+			current++;
+			return { value, done: false };
+		},
+		[Symbol.iterator]: function () {
+			if (isConsumed) {
+				throw new Error(
+					'[mb-network][Subnet] Iterator has already been consumed',
+				);
+			}
+			return this;
+		},
+	};
+}
+
+/**
+ *  Creates an iterator for **all host addresses** in the provided subnet
+ *
+ * @param subnet The subnet object to iterate over
+ * @returns An iterator over all host addresses in the subnet
+ * @throws An Error if the subnet is invalid
+ */
+export function newSubnetHostIter(subnet: Subnet): SubnetIter {
+	// validate subnet
+	if (!isSubnetValid(subnet)) {
+		throw new Error(
+			'[mb-network][Subnet] Invalid subnet provided when creating iterator; hint: use newSubnet()',
+		);
+	}
+
+	let current = firstHost(subnet);
+	const end = lastHost(subnet);
+	let isConsumed = false;
+	return {
+		next: () => {
+			if (isConsumed) {
+				throw new Error(
+					'[mb-network][Subnet] Iterator has already been consumed',
+				);
+			}
+
+			if (current > end) {
+				isConsumed = true;
+				return { value: end, done: true };
+			}
+			const value = current;
+			current++;
+			return { value, done: false };
+		},
+		[Symbol.iterator]: function () {
+			if (isConsumed) {
+				throw new Error(
+					'[mb-network][Subnet] Iterator has already been consumed',
+				);
+			}
+			return this;
+		},
+	};
+}
+
 /**
  *  Creates a new subnet object that fits the given ip address using the provided suffix
  *
@@ -215,7 +310,7 @@ export function subnetToString(subnet: Subnet): string {
 
 // internal broadcast function without validation
 function _broadcast(subnet: Subnet): Ip {
-	return subnet.networkAddress | _calcInverseNetworkMask(subnet.suffix);
+	return (subnet.networkAddress | _calcInverseNetworkMask(subnet.suffix)) >>> 0;
 }
 
 function _calcNetworkAddress(ip: Ip, suffix: number): Ip {

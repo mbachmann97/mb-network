@@ -30,4 +30,4 @@ An Error if the subnet is invalid
 
 ## Defined in
 
-[subnet.ts:101](https://github.com/mbachmann97/mb-network/blob/3f249f64df357d743cd7d48be3dc86d3f3cf1f0e/src/subnet.ts#L101)
+[subnet.ts:196](https://github.com/mbachmann97/mb-network/blob/3f5d1757544ae826d544d9a0cd9aec41c51c4650/src/subnet.ts#L196)

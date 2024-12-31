@@ -95,11 +95,14 @@ describe('lastHost: retrieve last host address', () => {
 
 describe('broadcast: retrieve broadcast address', () => {
 	it('returns the correct broadcast address for a given subnet', () => {
-		const result = subnet.broadcast({
+		const t1 = subnet.broadcast({
 			networkAddress: 168427840,
 			suffix: 26,
 		});
-		expect(result).toBe(168427903);
+		expect(t1).toBe(168427903);
+		const s2 = subnet.newSubnet('192.168.0.1', 28);
+		const t2 = subnet.broadcast(s2);
+		expect(t2).toBe(3232235535);
 	});
 });
 
@@ -174,6 +177,7 @@ describe('networkMaskToSuffix: convert network mask to suffix', () => {
 		const s24n = subnet.networkMaskToSuffix(4294967040);
 		const s25n = subnet.networkMaskToSuffix(4294967168);
 		expect(s24).toBe(24);
+		expect(s25).toBe(25);
 		expect(s24n).toBe(24);
 		expect(s25n).toBe(25);
 	});
@@ -189,5 +193,134 @@ describe('hostCountToSuffix: convert host count to suffix', () => {
 		expect(s25).toBe(25);
 		expect(s26).toBe(26);
 		expect(negative).toBe(32);
+	});
+});
+
+describe('subnet iterator (newSubnetIter)', () => {
+	it('manual .next() iteration returns correct values', () => {
+		const subnet1 = subnet.newSubnet('192.168.0.1', 28);
+		const iter = subnet.newSubnetIter(subnet1);
+		const first = iter.next();
+		const second = iter.next();
+		const third = iter.next();
+
+		expect(first.value).toBe(3232235520);
+		expect(second.value).toBe(3232235521);
+		expect(third.value).toBe(3232235522);
+	});
+
+	it('for-of iteration returns correct values', () => {
+		const subnet1 = subnet.newSubnet('192.168.0.1', 28);
+		const iter = subnet.newSubnetIter(subnet1);
+		const expected = [
+			3232235520, 3232235521, 3232235522, 3232235523, 3232235524, 3232235525,
+			3232235526, 3232235527, 3232235528, 3232235529, 3232235530, 3232235531,
+			3232235532, 3232235533, 3232235534, 3232235535,
+		];
+		const result = [];
+		for (const address of iter) {
+			result.push(address);
+		}
+		expect(result).toEqual(expected);
+	});
+
+	it('for-of iteration returns correct values for a /32 subnet', () => {
+		const subnet1 = subnet.newSubnet('192.168.0.1', 32);
+		const iter = subnet.newSubnetIter(subnet1);
+		const expected = [3232235521];
+		const result = [];
+		for (const address of iter) {
+			result.push(address);
+		}
+		expect(result).toEqual(expected);
+	});
+
+	it('spread operator returns correct values', () => {
+		const subnet1 = subnet.newSubnet('192.168.0.1', 28);
+		const iter = subnet.newSubnetIter(subnet1);
+		const expected = [
+			3232235520, 3232235521, 3232235522, 3232235523, 3232235524, 3232235525,
+			3232235526, 3232235527, 3232235528, 3232235529, 3232235530, 3232235531,
+			3232235532, 3232235533, 3232235534, 3232235535,
+		];
+		const result = [...iter];
+		expect(result).toEqual(expected);
+	});
+
+	it('throws an error when called with invalid subnet', () => {
+		expect(() =>
+			subnet.newSubnetIter({ networkAddress: -1, suffix: 23 }),
+		).toThrowError();
+	});
+
+	it('throws an error when iterator is exhausted', () => {
+		const subnet1 = subnet.newSubnet('192.168.0.1', 28);
+		const iter = subnet.newSubnetIter(subnet1);
+		[...iter];
+		expect(() => iter.next()).toThrowError();
+	});
+});
+
+describe('host iterator (newSubnetHostIter)', () => {
+	it('manual .next() iteration returns correct values', () => {
+		const subnet1 = subnet.newSubnet('192.168.0.1', 28);
+		const iter = subnet.newSubnetHostIter(subnet1);
+		const first = iter.next();
+		const second = iter.next();
+		const third = iter.next();
+
+		expect(first.value).toBe(3232235521);
+		expect(second.value).toBe(3232235522);
+		expect(third.value).toBe(3232235523);
+	});
+
+	it('for-of iteration returns correct values', () => {
+		const subnet1 = subnet.newSubnet('192.168.0.1', 28);
+		const iter = subnet.newSubnetHostIter(subnet1);
+		const expected = [
+			3232235521, 3232235522, 3232235523, 3232235524, 3232235525, 3232235526,
+			3232235527, 3232235528, 3232235529, 3232235530, 3232235531, 3232235532,
+			3232235533, 3232235534,
+		];
+		const result = [];
+		for (const address of iter) {
+			result.push(address);
+		}
+		expect(result).toEqual(expected);
+	});
+
+	it('for-of iteration returns correct value for a /32 subnet', () => {
+		const subnet1 = subnet.newSubnet('192.168.0.1', 32);
+		const iter = subnet.newSubnetHostIter(subnet1);
+		const result = [];
+		for (const address of iter) {
+			result.push(address);
+		}
+		expect(result.length).toEqual(0);
+	});
+
+	it('spread operator returns correct values', () => {
+		const subnet1 = subnet.newSubnet('192.168.0.1', 28);
+		const iter = subnet.newSubnetHostIter(subnet1);
+		const expected = [
+			3232235521, 3232235522, 3232235523, 3232235524, 3232235525, 3232235526,
+			3232235527, 3232235528, 3232235529, 3232235530, 3232235531, 3232235532,
+			3232235533, 3232235534,
+		];
+		const result = [...iter];
+		expect(result).toEqual(expected);
+	});
+
+	it('throws an error when called with invalid subnet', () => {
+		expect(() =>
+			subnet.newSubnetHostIter({ networkAddress: -1, suffix: 23 }),
+		).toThrowError();
+	});
+
+	it('throws an error when iterator is exhausted', () => {
+		const subnet1 = subnet.newSubnet('192.168.0.1', 28);
+		const iter = subnet.newSubnetHostIter(subnet1);
+		[...iter];
+		expect(() => iter.next()).toThrowError();
 	});
 });

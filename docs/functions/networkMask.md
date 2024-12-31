@@ -30,4 +30,4 @@ An Error if the suffix is out of range
 
 ## Defined in
 
-[subnet.ts:60](https://github.com/mbachmann97/mb-network/blob/3f249f64df357d743cd7d48be3dc86d3f3cf1f0e/src/subnet.ts#L60)
+[subnet.ts:155](https://github.com/mbachmann97/mb-network/blob/3f5d1757544ae826d544d9a0cd9aec41c51c4650/src/subnet.ts#L155)

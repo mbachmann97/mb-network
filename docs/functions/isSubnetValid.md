@@ -26,4 +26,4 @@ The subnet object to check
 
 ## Defined in
 
-[subnet.ts:43](https://github.com/mbachmann97/mb-network/blob/3f249f64df357d743cd7d48be3dc86d3f3cf1f0e/src/subnet.ts#L43)
+[subnet.ts:138](https://github.com/mbachmann97/mb-network/blob/3f5d1757544ae826d544d9a0cd9aec41c51c4650/src/subnet.ts#L138)

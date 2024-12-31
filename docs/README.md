@@ -7,6 +7,7 @@
 ## Interfaces
 
 - [Subnet](interfaces/Subnet.md)
+- [SubnetIter](interfaces/SubnetIter.md)
 
 ## Type Aliases
 
@@ -27,5 +28,7 @@
 - [networkMaskToSuffix](functions/networkMaskToSuffix.md)
 - [newIp](functions/newIp.md)
 - [newSubnet](functions/newSubnet.md)
+- [newSubnetHostIter](functions/newSubnetHostIter.md)
+- [newSubnetIter](functions/newSubnetIter.md)
 - [possibleHostCount](functions/possibleHostCount.md)
 - [subnetToString](functions/subnetToString.md)
