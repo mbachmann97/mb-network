@@ -58,7 +58,7 @@ console.log(subnetToString(subnet)) // logs -> 192.168.0.0/24
 
 ### 🔢🔤 About numbers and strings
 In mb-network Ip's are stored as a single number. To covert it to the well known readable format e.g. 192.168.0.1 you need to use the function *ipToString*.
-It was a design decision to have the subnet functions, such as *broadcast*, also return the ip as a number (type Ip). This approach opens up more options for further working with the results.
+It was a design decision to have the subnet functions, such as *broadcast*, also return the ip as a number (type Ip). <br /> This approach opens up more options for further working with the results.
 
 ```ts
 import { newSubnet, broadcast, ipToString } from 'mb-network'
