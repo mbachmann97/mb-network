@@ -45,7 +45,7 @@ $ npm i mb-network
 ## Examples
 
 ### 🦄 First steps
-#### It is recommended to always use the functions *newIp* and *newSubnet* for creating new Ip's and Subnet's. Although you don't need to.
+It is recommended to always use the functions *newIp* and *newSubnet* for creating new Ip's and Subnet's. Although you don't need to.
 
 ```ts
 import { newIp, newSubnet, subnetToString } from 'mb-network'
@@ -57,8 +57,8 @@ console.log(subnetToString(subnet)) // logs -> 192.168.0.0/24
 ```
 
 ### 🔢🔤 About numbers and strings
-#### In mb-network Ip's are stored as a single number. To covert it to the well known readable format e.g. 192.168.0.1 you need to use the function *ipToString*.
-#### It was a design decision to have the subnet functions, such as *broadcast*, also return the ip as a number (type Ip). This approach opens up more options for further working with the results.
+In mb-network Ip's are stored as a single number. To covert it to the well known readable format e.g. 192.168.0.1 you need to use the function *ipToString*.
+It was a design decision to have the subnet functions, such as *broadcast*, also return the ip as a number (type Ip). This approach opens up more options for further working with the results.
 
 ```ts
 import { newSubnet, broadcast, ipToString } from 'mb-network'
