@@ -1,4 +1,4 @@
-[**mb-network v2.0.1**](../README.md)
+[**mb-network v2.0.3**](../README.md)
 
 ***
 
@@ -30,4 +30,4 @@ An Error if the subnet is invalid
 
 ## Defined in
 
-[subnet.ts:146](https://github.com/mbachmann97/mb-network/blob/a3b03f60431299c07af00173f7280a3aa0a15a80/src/subnet.ts#L146)
+[subnet.ts:146](https://github.com/mbachmann97/mb-network/blob/ec859bc9fa23945f71168926642866140fd255b1/src/subnet.ts#L146)
