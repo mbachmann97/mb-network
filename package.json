@@ -1,6 +1,6 @@
 {
 	"name": "mb-network",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"description": "network library",
 	"scripts": {
 		"build": "tsup src/* --format cjs,esm --dts --keepNames",
@@ -18,17 +18,17 @@
 		"validation"
 	],
 	"main": "dist/main.cjs",
-	"module": "dist/main.mjs",
+	"module": "dist/main.js",
 	"types": "dist/main.d.ts",
 	"exports": {
 		".": {
 			"require": "./dist/main.cjs",
-			"import": "./dist/main.mjs"
+			"import": "./dist/main.js"
 		}
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/mbachmann97/mb-network.git"
+		"url": "git+https://github.com/mbachmann97/mb-network.git"
 	},
 	"type": "module",
 	"author": "Markus Bachmann",
