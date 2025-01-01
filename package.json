@@ -6,7 +6,8 @@
 		"build": "tsup src/* --format cjs,esm --dts --keepNames",
 		"format": "npx @biomejs/biome format --write ./",
 		"test": "vitest",
-		"docs": "typedoc --out docs --plugin typedoc-plugin-markdown --excludePrivate --includeVersion --entryPoints ./src/main.ts --readme none"
+		"docs": "typedoc --out docs --plugin typedoc-plugin-markdown --excludePrivate --includeVersion --entryPoints ./src/main.ts --readme none",
+		"build-publish": "npm run build && npm publish"
 	},
 	"files": ["dist"],
 	"keywords": [
