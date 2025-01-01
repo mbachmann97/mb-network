@@ -18,41 +18,7 @@ export interface SubnetIter {
  * @throws An Error if the subnet is invalid
  */
 export function newSubnetIter(subnet: Subnet): SubnetIter {
-	// validate subnet
-	if (!isSubnetValid(subnet)) {
-		throw new Error(
-			'[mb-network][Subnet] Invalid subnet provided when creating iterator; hint: use newSubnet()',
-		);
-	}
-
-	let current = subnet.networkAddress;
-	const end = _broadcast(subnet);
-	let isConsumed = false;
-	return {
-		next: () => {
-			if (isConsumed) {
-				throw new Error(
-					'[mb-network][Subnet] Iterator has already been consumed',
-				);
-			}
-
-			if (current > end) {
-				isConsumed = true;
-				return { value: end, done: true };
-			}
-			const value = current;
-			current++;
-			return { value, done: false };
-		},
-		[Symbol.iterator]: function () {
-			if (isConsumed) {
-				throw new Error(
-					'[mb-network][Subnet] Iterator has already been consumed',
-				);
-			}
-			return this;
-		},
-	};
+	return _createIter(subnet);
 }
 
 /**
@@ -63,41 +29,7 @@ export function newSubnetIter(subnet: Subnet): SubnetIter {
  * @throws An Error if the subnet is invalid
  */
 export function newSubnetHostIter(subnet: Subnet): SubnetIter {
-	// validate subnet
-	if (!isSubnetValid(subnet)) {
-		throw new Error(
-			'[mb-network][Subnet] Invalid subnet provided when creating iterator; hint: use newSubnet()',
-		);
-	}
-
-	let current = firstHost(subnet);
-	const end = lastHost(subnet);
-	let isConsumed = false;
-	return {
-		next: () => {
-			if (isConsumed) {
-				throw new Error(
-					'[mb-network][Subnet] Iterator has already been consumed',
-				);
-			}
-
-			if (current > end) {
-				isConsumed = true;
-				return { value: end, done: true };
-			}
-			const value = current;
-			current++;
-			return { value, done: false };
-		},
-		[Symbol.iterator]: function () {
-			if (isConsumed) {
-				throw new Error(
-					'[mb-network][Subnet] Iterator has already been consumed',
-				);
-			}
-			return this;
-		},
-	};
+	return _createIter(subnet, SubnetIterType.HOST);
 }
 
 /**
@@ -334,4 +266,52 @@ function _retrieveAndValidateSuffix(subnetOrSuffix: Subnet | number): number {
 		throw new Error('[mb-network][Subnet] Suffix needs to be between 0 and 32');
 	}
 	return suffix;
+}
+
+enum SubnetIterType {
+	FULL = 0,
+	HOST = 1,
+}
+
+function _createIter(
+	subnet: Subnet,
+	type: SubnetIterType = SubnetIterType.FULL,
+): SubnetIter {
+	// validate subnet
+	if (!isSubnetValid(subnet)) {
+		throw new Error(
+			'[mb-network][Subnet] Invalid subnet provided when creating iterator; hint: use newSubnet()',
+		);
+	}
+
+	let current =
+		type === SubnetIterType.HOST ? firstHost(subnet) : subnet.networkAddress;
+	const end =
+		type === SubnetIterType.HOST ? lastHost(subnet) : _broadcast(subnet);
+	let isConsumed = false;
+	return {
+		next: () => {
+			if (isConsumed) {
+				throw new Error(
+					'[mb-network][Subnet] Iterator has already been consumed',
+				);
+			}
+
+			if (current > end) {
+				isConsumed = true;
+				return { value: end, done: true };
+			}
+			const value = current;
+			current++;
+			return { value, done: false };
+		},
+		[Symbol.iterator]: function () {
+			if (isConsumed) {
+				throw new Error(
+					'[mb-network][Subnet] Iterator has already been consumed',
+				);
+			}
+			return this;
+		},
+	};
 }

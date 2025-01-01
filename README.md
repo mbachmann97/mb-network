@@ -76,4 +76,63 @@ console.log(ipToString(broadcastOfSubnet - 10)) // logs -> 192.168.0.245
 ```
 
 ### 🍩 Looping around
-examples soon™
+A subnet object consists solely of a network address (Ip) and a suffix (number). But what if you need to work with the addresses within the subnet? <br />
+For this purpose mb-network provides two **iterators**. A general address iterator *newSubnetIter(): SubnetIter* and a host address iterator *newSubnetHostIter(): SubnetIter* <br />
+This iterators sit on top of a subnet and are ***not*** a direct part of it as you may know it from Arrays.
+
+#### Spreading a subnet
+```ts
+import { newSubnet, newSubnetIter }
+
+const subnet = newSubnet('192.168.0.5', 28)
+const iter = newSubnetIter(subnet) // Iterator over all addresses including network address and broadcast
+
+const addresses = [...iter] // Array<Ip>
+```
+
+#### Classic for..of loop
+````ts
+import { newSubnet, newSubnetHostIter }
+
+const subnet = newSubnet('192.168.0.5', 28)
+const iter = newSubnetHostIter(subnet) // Iterator over all host addresses
+
+for (const host of iter) {
+  // do something with host address (Ip)
+}
+````
+
+#### Manual consumption
+````ts
+import { newSubnet, newSubnetIter, ipToString }
+
+const subnet = newSubnet('192.168.0.5', 28)
+const iter = newSubnetIter(subnet)
+
+// skip first three addresses (for some reason)
+iter.next()
+iter.next()
+iter.next()
+
+// do something with the rest
+while (!iter.done) {
+  const address = iter.next().value
+
+  console.log(ipToString(address))
+}
+````
+
+#### So exhausting..
+Compared to e.g. the Array iterator these iterators will be exhausted after one use. Trying to consume an iterator twice will result in an Error. <br />
+Although the infinite iterator usage of an Array could be mimicked, we would then lose the classical "manual consumption" method of consuming the iterator.
+<br/><br/>
+
+## 🤝 Contributing and Getting Involved
+
+Thank you for checking out **mb-network**! This library is built with the goal of simplifying network-related operations for developers, and we’d love for you to join us in making it even better.
+
+- **Contribute**: Found a bug or have an idea for an improvement? Contributions are always welcome! Feel free to submit an issue or open a pull request on our 
+[GitHub repository](https://github.com/mbachmann97/mb-network/issues).
+- **Build with it**: mb-network is designed to be flexible and powerful. If you build something cool using the library,
+[share it with us](https://github.com/mbachmann97/mb-network/discussions/categories/show-and-tell)! We’d love to feature your projects and learn how this library helps you. 
+- **Stay connected**: Got feedback or questions? Open a discussion on our [GitHub Discussions](https://github.com/mbachmann97/mb-network/discussions). We’re always here to collaborate and help.
