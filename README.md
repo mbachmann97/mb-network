@@ -115,10 +115,11 @@ iter.next()
 iter.next()
 
 // do something with the rest
-while (!iter.done) {
+let result = iter.next();
+while (!result.done) {
   const address = iter.next().value
-
   console.log(ipToString(address))
+  result = iter.next();    
 }
 ````
 
