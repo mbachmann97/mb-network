@@ -1,7 +1,7 @@
 {
 	"name": "mb-network",
 	"version": "2.0.3",
-	"description": "network library",
+	"description": "a flexible and powerful network library written in TypeScript",
 	"scripts": {
 		"build": "tsup src/* --format cjs,esm --dts --keepNames",
 		"format": "npx @biomejs/biome format --write ./",
