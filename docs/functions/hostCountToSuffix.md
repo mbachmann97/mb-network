@@ -1,4 +1,4 @@
-[**mb-network v2.0.0**](../README.md)
+[**mb-network v2.0.1**](../README.md)
 
 ***
 
@@ -26,4 +26,4 @@ The suffix for the smallest subnet that can hold the provided amount of hosts
 
 ## Defined in
 
-[subnet.ts:295](https://github.com/mbachmann97/mb-network/blob/3f5d1757544ae826d544d9a0cd9aec41c51c4650/src/subnet.ts#L295)
+[subnet.ts:227](https://github.com/mbachmann97/mb-network/blob/a3b03f60431299c07af00173f7280a3aa0a15a80/src/subnet.ts#L227)

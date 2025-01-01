@@ -1,4 +1,4 @@
-[**mb-network v2.0.0**](../README.md)
+[**mb-network v2.0.1**](../README.md)
 
 ***
 
@@ -10,4 +10,4 @@
 
 ## Defined in
 
-[ip.ts:1](https://github.com/mbachmann97/mb-network/blob/3f5d1757544ae826d544d9a0cd9aec41c51c4650/src/ip.ts#L1)
+[ip.ts:1](https://github.com/mbachmann97/mb-network/blob/a3b03f60431299c07af00173f7280a3aa0a15a80/src/ip.ts#L1)

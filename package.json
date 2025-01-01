@@ -1,6 +1,6 @@
 {
 	"name": "mb-network",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "network library",
 	"scripts": {
 		"build": "tsup src/* --format cjs,esm --dts --keepNames",
