@@ -117,7 +117,7 @@ iter.next()
 // do something with the rest
 let result = iter.next();
 while (!result.done) {
-  const address = iter.next().value
+  const address = result.value
   console.log(ipToString(address))
   result = iter.next();    
 }
