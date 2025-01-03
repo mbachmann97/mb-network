@@ -45,12 +45,21 @@ export function ipToString(ip: Ip): string {
  * @param ip The ip (number | Ip) address e.g. 3232235521
  * @returns **true** if the ip address is valid, **false** otherwise
  */
-export function isIpValid(ip: Ip): boolean {
-	try {
-		ipToString(ip);
-		return true;
-	} catch (e) {
-		return false;
+export function isIpValid(ip: Ip | string): boolean {
+	if (typeof ip === 'string') {
+		try {
+			_newIpFromString(ip);
+			return true;
+		} catch {
+			return false;
+		}
+	} else {
+		try {
+			ipToString(ip);
+			return true;
+		} catch {
+			return false;
+		}
 	}
 }
 

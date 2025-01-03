@@ -1,4 +1,4 @@
-[**mb-network v2.0.3**](../README.md)
+[**mb-network v2.0.4**](../README.md)
 
 ***
 
@@ -30,4 +30,4 @@ An Error if network address is not a valid ip address
 
 ## Defined in
 
-[subnet.ts:239](https://github.com/mbachmann97/mb-network/blob/ec859bc9fa23945f71168926642866140fd255b1/src/subnet.ts#L239)
+[subnet.ts:239](https://github.com/mbachmann97/mb-network/blob/13e5b592b92af2d2d7b66f6aa710b2b87a7c9e34/src/subnet.ts#L239)

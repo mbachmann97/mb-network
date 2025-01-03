@@ -43,4 +43,14 @@ describe('isIpValid: check if Ip is valid', () => {
 		const result = ip.isIpValid(-1);
 		expect(result).toBe(false);
 	});
+
+	it('returns true for valid Ip provided as string', () => {
+		const result = ip.isIpValid('192.168.0.1');
+		expect(result).toBe(true);
+	});
+
+	it('returns false for invalid Ip provided as string', () => {
+		const result = ip.isIpValid('192.168.0.');
+		expect(result).toBe(false);
+	});
 });
