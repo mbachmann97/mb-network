@@ -7,7 +7,7 @@
 		"format": "npx @biomejs/biome format --write ./",
 		"test": "vitest",
 		"docs": "typedoc --out docs --plugin typedoc-plugin-markdown --excludePrivate --includeVersion --entryPoints ./src/main.ts --readme none",
-		"build-publish": "rm ./dist/* && npm run build && npm publish"
+		"build-publish": "del /q dist\\* && npm run build && npm publish"
 	},
 	"files": ["dist"],
 	"keywords": [
