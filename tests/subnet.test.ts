@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import * as subnet from '../src/subnet';
+import { ipToString } from '../src/ip';
 
 describe('newSubnet: create a new subnet; correct network address if needed', () => {
 	it('returns a valid subnet when called with valid ip as string and valid suffix', () => {
@@ -67,9 +68,18 @@ describe('possibleHostCount: calculate possible host count', () => {
 		expect(subnet.possibleHostCount(30)).toBe(2);
 		expect(subnet.possibleHostCount(26)).toBe(62);
 	});
-
 	it('throws an error for invalid suffix', () => {
 		expect(() => subnet.possibleHostCount(-2)).toThrowError();
+	});
+	it('returns 0 for a /31 subnet', () => {
+		const s1 = subnet.newSubnet('192.168.0.1', 31);
+		const result = subnet.possibleHostCount(s1);
+		expect(result).toBe(0);
+	});
+	it('returns 0 for a /32 subnet', () => {
+		const s1 = subnet.newSubnet('192.168.0.1', 32);
+		const result = subnet.possibleHostCount(s1);
+		expect(result).toBe(0);
 	});
 });
 
@@ -81,6 +91,21 @@ describe('firstHost: retrieve first host address', () => {
 		});
 		expect(result).toBe(168427841);
 	});
+	it('returns 1 for a /0 subnet', () => {
+		const s1 = subnet.newSubnet('192.168.0.1', 0);
+		const result = subnet.firstHost(s1);
+		expect(result).toBe(1);
+	});
+	it('returns network address for a /32 subnet', () => {
+		const s1 = subnet.newSubnet('192.168.0.32', 32);
+		const result = subnet.firstHost(s1);
+		expect(result).toBe(s1.networkAddress);
+	});
+	it('returns -1 for a /31 subnet', () => {
+		const s1 = subnet.newSubnet('192.168.0.32', 31);
+		const result = subnet.firstHost(s1);
+		expect(result).toBe(-1);
+	});
 });
 
 describe('lastHost: retrieve last host address', () => {
@@ -90,6 +115,21 @@ describe('lastHost: retrieve last host address', () => {
 			suffix: 26,
 		});
 		expect(result).toBe(168427902);
+	});
+	it('returns last possible ip for a /0 subnet', () => {
+		const s1 = subnet.newSubnet('192.168.132.197', 0);
+		const result = subnet.lastHost(s1);
+		expect(result).toBe(4294967294);
+	});
+	it('returns network address for a /32 subnet', () => {
+		const s1 = subnet.newSubnet('192.168.0.32', 32);
+		const result = subnet.lastHost(s1);
+		expect(result).toBe(s1.networkAddress);
+	});
+	it('returns -1 for a /31 subnet', () => {
+		const s1 = subnet.newSubnet('192.168.0.32', 31);
+		const result = subnet.lastHost(s1);
+		expect(result).toBe(-1);
 	});
 });
 
@@ -103,6 +143,21 @@ describe('broadcast: retrieve broadcast address', () => {
 		const s2 = subnet.newSubnet('192.168.0.1', 28);
 		const t2 = subnet.broadcast(s2);
 		expect(t2).toBe(3232235535);
+	});
+	it('returns network address for a /32 subnet', () => {
+		const s1 = subnet.newSubnet('192.168.132.197', 32);
+		const result = subnet.broadcast(s1);
+		expect(result).toBe(s1.networkAddress);
+	});
+	it('returns the last possible ip for a /0 subnet', () => {
+		const s1 = subnet.newSubnet('192.168.0.1', 0);
+		const result = subnet.broadcast(s1);
+		expect(result).toBe(0xffffffff);
+	});
+	it('returns correct broadcast address for a /31 subnet', () => {
+		const s1 = subnet.newSubnet('192.168.0.1', 31);
+		const result = subnet.broadcast(s1);
+		expect(result).toBe(s1.networkAddress + 1);
 	});
 });
 
@@ -180,6 +235,11 @@ describe('networkMaskToSuffix: convert network mask to suffix', () => {
 		expect(s25).toBe(25);
 		expect(s24n).toBe(24);
 		expect(s25n).toBe(25);
+	});
+
+	it('returns the next larger valid suffix for a given network mask', () => {
+		const invalidMask = subnet.networkMaskToSuffix('255.255.255.195');
+		expect(invalidMask).toBe(27);
 	});
 });
 
@@ -296,7 +356,7 @@ describe('host iterator (newSubnetHostIter)', () => {
 		for (const address of iter) {
 			result.push(address);
 		}
-		expect(result.length).toEqual(0);
+		expect(result.length).toEqual(1);
 	});
 
 	it('spread operator returns correct values', () => {

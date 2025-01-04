@@ -1,8 +1,8 @@
-**mb-network v2.0.4**
+**mb-network v2.0.6**
 
 ***
 
-# mb-network v2.0.4
+# mb-network v2.0.6
 
 ## Interfaces
 

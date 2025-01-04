@@ -1,13 +1,13 @@
 {
 	"name": "mb-network",
-	"version": "2.0.5",
+	"version": "2.0.6",
 	"description": "a flexible and powerful network library written in TypeScript",
 	"scripts": {
 		"build": "tsup src/* --format cjs,esm --dts --keepNames",
 		"format": "npx @biomejs/biome format --write ./",
 		"test": "vitest",
 		"docs": "typedoc --out docs --plugin typedoc-plugin-markdown --excludePrivate --includeVersion --entryPoints ./src/main.ts --readme none",
-		"build-publish": "npm run build && npm publish"
+		"build-publish": "rm ./dist/* && npm run build && npm publish"
 	},
 	"files": ["dist"],
 	"keywords": [

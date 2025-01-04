@@ -10,6 +10,42 @@ export interface SubnetIter {
 	[Symbol.iterator]: () => SubnetIter;
 }
 
+const CidrMapping = [
+	0x00000000, // /0
+	0x80000000, // /1
+	0xc0000000, // /2
+	0xe0000000, // /3
+	0xf0000000, // /4
+	0xf8000000, // /5
+	0xfc000000, // /6
+	0xfe000000, // /7
+	0xff000000, // /8
+	0xff800000, // /9
+	0xffc00000, // /10
+	0xffe00000, // /11
+	0xfff00000, // /12
+	0xfff80000, // /13
+	0xfffc0000, // /14
+	0xfffe0000, // /15
+	0xffff0000, // /16
+	0xffff8000, // /17
+	0xffffc000, // /18
+	0xffffe000, // /19
+	0xfffff000, // /20
+	0xfffff800, // /21
+	0xfffffc00, // /22
+	0xfffffe00, // /23
+	0xffffff00, // /24
+	0xffffff80, // /25
+	0xffffffc0, // /26
+	0xffffffe0, // /27
+	0xfffffff0, // /28
+	0xfffffff8, // /29
+	0xfffffffc, // /30
+	0xfffffffe, // /31
+	0xffffffff, // /32
+] as const;
+
 /**
  *  Creates an iterator for **all addresses** in the provided subnet
  *
@@ -98,6 +134,7 @@ export function networkMask(subnetOrSuffix: Subnet | number): Ip {
  */
 export function possibleHostCount(subnetOrSuffix: Subnet | number): number {
 	const suffix = _retrieveAndValidateSuffix(subnetOrSuffix);
+	if (suffix === 32) return 0; // handle /32 edge case
 	return 2 ** (32 - suffix) - 2;
 }
 
@@ -115,6 +152,11 @@ export function firstHost(subnet: Subnet): Ip {
 			'[mb-network][Subnet] Invalid subnet provided when retrieving first host address; hint: use newSubnet()',
 		);
 
+	// edge cases
+	if (subnet.suffix === 0) return 1;
+	if (subnet.suffix === 32) return subnet.networkAddress;
+	if (subnet.suffix === 31) return -1;
+	// default case
 	return subnet.networkAddress + 1;
 }
 
@@ -133,6 +175,10 @@ export function lastHost(subnet: Subnet): Ip {
 		);
 	}
 
+	// edge cases
+	if (subnet.suffix === 32) return subnet.networkAddress;
+	if (subnet.suffix === 31) return -1;
+	// default case
 	return _broadcast(subnet) - 1;
 }
 
@@ -212,6 +258,12 @@ export function networkMaskToSuffix(mask: Ip | string): number {
 		throw new Error('[mb-network][Subnet] Invalid network mask provided');
 	}
 
+	// check if mask is valid and if not not return index of next higher mask
+	if (!CidrMapping.includes(_mask as (typeof CidrMapping)[number])) {
+		const index = CidrMapping.findIndex((m) => m > _mask);
+		return index === -1 ? 32 : index;
+	}
+
 	// count the number of network bits
 	const suffix = _mask.toString(2).split('1').length - 1;
 
@@ -252,6 +304,7 @@ function _calcNetworkAddress(ip: Ip, suffix: number): Ip {
 }
 
 function _calcNetworkMask(suffix: number): number {
+	if (suffix === 0) return 0;
 	return (0xffffffff << (32 - suffix)) >>> 0;
 }
 
