@@ -82,7 +82,7 @@ This iterators sit on top of a subnet and are ***not*** a direct part of it as y
 
 #### Spreading a subnet
 ```ts
-import { newSubnet, newSubnetIter }
+import { newSubnet, newSubnetIter } from 'mb-network'
 
 const subnet = newSubnet('192.168.0.5', 28)
 const iter = newSubnetIter(subnet) // Iterator over all addresses including network address and broadcast
@@ -92,7 +92,7 @@ const addresses = [...iter] // Array<Ip>
 
 #### Classic for..of loop
 ````ts
-import { newSubnet, newSubnetHostIter }
+import { newSubnet, newSubnetHostIter } from 'mb-network'
 
 const subnet = newSubnet('192.168.0.5', 28)
 const iter = newSubnetHostIter(subnet) // Iterator over all host addresses
@@ -104,7 +104,7 @@ for (const host of iter) {
 
 #### Manual consumption
 ````ts
-import { newSubnet, newSubnetIter, ipToString }
+import { newSubnet, newSubnetIter, ipToString } from 'mb-network'
 
 const subnet = newSubnet('192.168.0.5', 28)
 const iter = newSubnetIter(subnet)
